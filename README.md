@@ -210,7 +210,7 @@ Planned enhancements include:
 ## 📬 Connect With Me
 
 **Portfolio**
-https://hamzatahirportfolio.vercel.app/
+https://hamzatahir-portfolio.vercel.app/
 
 **GitHub**
 https://github.com/hamzatahir06
