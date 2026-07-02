@@ -4,7 +4,7 @@ A modern, recruiter-focused portfolio built to showcase my work as an **Agentic 
 
 Designed with a premium, startup-inspired aesthetic, the website emphasizes execution, engineering mindset, and product thinking—qualities valued by AI-first companies.
 
-> **Live Portfolio:** https://hamzatahirportfolio.vercel.app/
+> **Live Portfolio:** https://hamzatahir-portfolio.vercel.app/
 
 ---
 

@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Hamza Tahir — AI Systems Engineer',
+  title: 'Hamza Tahir — Agentic AI Engineer',
   description:
     'I build Autonomous, agentic AI systems that replace manual work and create real business value using Python, LLMs, and APIs.',
   generator: 'v0.app',
