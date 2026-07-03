@@ -9,6 +9,11 @@ __v0_jsx-dev-runtime.ts
 # Environment variables
 .env*.local
 
+# Guide for AI to make scalability convenient
+docs/PROJECT_CONTEXT.md
+docs/CONTENT_GUIDE.md
+docs/DESIGN_SYSTEM.md
+
 # Common ignores
 node_modules
 .next/
