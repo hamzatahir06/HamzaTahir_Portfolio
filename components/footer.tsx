@@ -8,7 +8,7 @@ export function Footer() {
           </span>
           © {new Date().getFullYear()} Hamza Tahir
         </p>
-        <p>Built with Next.js, Tailwind CSS &amp; Framer Motion.</p>
+        <p></p>
       </div>
     </footer>
   )
