@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     'Portfolio',
   ],
   openGraph: {
-    title: 'Hamza Tahir — AI Systems Engineer',
+    title: 'Hamza Tahir — Agentic AI Engineer',
     description:
-      'I build autonomous, agentic AI systems that replace manual work and create real business value.',
+      'I build Autonomous, agentic AI systems that replace manual work and create real business value.',
     type: 'website',
   },
 }
