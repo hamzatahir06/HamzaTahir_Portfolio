@@ -1,8 +1,8 @@
 # 🚀 Hamza Tahir — Agentic AI Engineer Portfolio
 
-A modern, recruiter-focused portfolio built to showcase my work as an **Agentic AI Engineer**. Rather than functioning as a traditional résumé website, this portfolio tells the story of how I design and build AI systems that automate real business workflows using Large Language Models (LLMs), APIs, and Python.
+A modern, Tech Industry aligned portfolio built to showcase my work as an **Agentic AI Engineer**. Rather than functioning as a traditional résumé website, this portfolio tells the story of how I design and build AI systems that automate real business workflows using Large Language Models (LLMs), APIs, and Python.
 
-Designed with a premium, startup-inspired aesthetic, the website emphasizes execution, engineering mindset, and product thinking—qualities valued by AI-first companies.
+Designed with a premium, Skills-first aesthetic, the website emphasizes execution, engineering mindset, and product thinking—qualities valued by people who understand current AI era.
 
 > **Live Portfolio:** https://hamzatahir-portfolio.vercel.app/
 
