@@ -21,11 +21,11 @@ import { ScrollStack } from './scroll-stack'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
 
-// One block of the expanded breakdown. Untitled sections read as a story,
-// and `wide` sections span both columns on larger screens.
+// One block of the expanded breakdown. `wide` sections span both columns on
+// larger screens.
 interface BreakdownSection {
-  title?: string
-  paragraphs: string[]
+  title: string
+  text: string
   wide?: boolean
 }
 
@@ -57,22 +57,19 @@ const projects: Project[] = [
     breakdown: [
       {
         title: 'The problem',
-        paragraphs: [
+        text:
           'Finding sources you can trust takes longer than the work they are for. The first page of results is ads, forum answers and blogs that cite nothing, and much of what remains copies itself. Whether it’s an assignment due tomorrow, a briefing needed before a meeting, or a claim worth checking, forty minutes later you have twenty tabs open and one usable link.',
-        ],
       },
       {
         title: 'The solution',
-        paragraphs: [
+        text:
           'A research agent that does the digging for you. Give it a substantive topic and it plans its own searches, sets aside unreliable sites, keeps the official and credible ones, and writes up what it found with every source linked, so you can check it yourself. You watch it work in real time, and at the end you get a Word doc or PDF you can use straight away.',
-        ],
       },
       {
         title: 'How it works',
         wide: true,
-        paragraphs: [
+        text:
           'The agent judges how much research a topic needs: a narrow one gets a single search, a broad one gets several from different angles, and it stops once coverage is solid. It searches the live web through Tavily and peer-reviewed papers through OpenAlex, then ranks every result by source authority in code rather than leaving it to the model, placing official, government and academic sources first. Gemini handles the reasoning, with Groq taking over automatically if Gemini hits a limit. Each search streams from the FastAPI backend to the React interface as it happens, and finished reports are saved to your account with Supabase.',
-        ],
       },
     ],
     tech: [
@@ -96,22 +93,19 @@ const projects: Project[] = [
     breakdown: [
       {
         title: 'The problem',
-        paragraphs: [
+        text:
           'Sales teams lose hours triaging inboxes by hand. High-intent leads sit unnoticed next to newsletters and noise, and response time slips — which directly costs revenue.',
-        ],
       },
       {
         title: 'The solution',
-        paragraphs: [
+        text:
           'A workflow automation system that reads incoming email, uses LLM reasoning to understand intent, classifies and prioritizes each message, then pushes the important ones straight to the team in Slack.',
-        ],
       },
       {
         title: 'How it works',
         wide: true,
-        paragraphs: [
+        text:
           'The Gmail API streams new messages into a Python service. Each message is passed to a reasoning model with a purpose-built prompt that scores intent and category. High-priority results are delivered instantly to the sales channel via the Slack API, so the right opportunity reaches a human in seconds — not hours.',
-        ],
       },
     ],
     workflow: [
@@ -140,22 +134,19 @@ const projects: Project[] = [
     breakdown: [
       {
         title: 'The problem',
-        paragraphs: [
+        text:
           'Switching between typing, searching, and running tasks breaks focus. Getting quick answers or triggering an action often means too many manual steps.',
-        ],
       },
       {
         title: 'The solution',
-        paragraphs: [
+        text:
           'A context-aware voice assistant that listens, understands natural speech, responds conversationally, and automates system tasks — so interaction feels like talking to a capable teammate.',
-        ],
       },
       {
         title: 'How it works',
         wide: true,
-        paragraphs: [
+        text:
           'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
-        ],
       },
     ],
     workflow: [
@@ -313,27 +304,17 @@ function ProjectCard({ project }: { project: Project }) {
               className="overflow-hidden"
             >
               <div className="mt-6 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
-                {project.breakdown.map((section, i) => (
-                  <div key={i} className={cn(section.wide && 'sm:col-span-2')}>
-                    {section.title && (
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        {section.title}
-                      </p>
-                    )}
-                    <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-muted-foreground">
-                      {section.paragraphs.map((text, j) => (
-                        <p
-                          key={j}
-                          className={cn(
-                            !section.title &&
-                              j === 0 &&
-                              'text-base font-semibold text-foreground',
-                          )}
-                        >
-                          {text}
-                        </p>
-                      ))}
-                    </div>
+                {project.breakdown.map((section) => (
+                  <div
+                    key={section.title}
+                    className={cn(section.wide && 'sm:col-span-2')}
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      {section.title}
+                    </p>
+                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                      {section.text}
+                    </p>
                   </div>
                 ))}
               </div>
