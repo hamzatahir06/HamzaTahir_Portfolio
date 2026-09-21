@@ -14,8 +14,8 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Projects />
+        <About />
         <TechGraph />
         <Skills />
         <Philosophy />
