@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import { GithubIcon } from './brand-icons'
 
 const stat = [
-  { value: '2', label: 'Production AI systems' },
+  { value: '3', label: 'Production AI systems' },
   { value: '3+', label: 'APIs orchestrated' },
   { value: '100%', label: 'Built from scratch' },
 ]
