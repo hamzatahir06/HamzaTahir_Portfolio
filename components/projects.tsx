@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Inbox, Mic } from 'lucide-react'
 import { GithubIcon } from './brand-icons'
 import { cn } from '@/lib/utils'
+import { ScrollStack } from './scroll-stack'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
 
@@ -75,7 +76,7 @@ function WorkflowFlow({ steps }: { steps: string[] }) {
     <div className="flex flex-wrap items-center gap-2">
       {steps.map((step, i) => (
         <div key={step} className="flex items-center gap-2">
-          <span className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground">
+          <span className="rounded-lg border border-border bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground">
             {step}
           </span>
           {i < steps.length - 1 && (
@@ -89,7 +90,7 @@ function WorkflowFlow({ steps }: { steps: string[] }) {
   )
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project }: { project: Project }) {
   const [open, setOpen] = useState(false)
   const Icon = project.icon
 
@@ -98,8 +99,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative overflow-hidden rounded-3xl border border-border bg-card/50 transition-colors hover:border-primary/40"
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="surface-purple group relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-black/50 transition-colors hover:border-primary/50"
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -215,10 +216,12 @@ export function Projects() {
         </a>
       </div>
 
-      <div className="mt-12 grid gap-6">
-        {projects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
-        ))}
+      <div className="mt-12">
+        <ScrollStack>
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </ScrollStack>
       </div>
     </Section>
   )

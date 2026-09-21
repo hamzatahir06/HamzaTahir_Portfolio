@@ -20,16 +20,13 @@ export function Reveal({
   children,
   className,
   delay = 0,
-  as = 'div',
 }: {
   children: ReactNode
   className?: string
   delay?: number
-  as?: 'div' | 'section' | 'li' | 'span'
 }) {
-  const MotionTag = motion[as]
   return (
-    <MotionTag
+    <motion.div
       className={className}
       variants={variants}
       custom={delay}
@@ -38,6 +35,6 @@ export function Reveal({
       viewport={{ once: true, margin: '-80px' }}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   )
 }

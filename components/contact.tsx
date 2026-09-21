@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Mail } from 'lucide-react'
+import { Download, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './brand-icons'
 import { Reveal } from './reveal'
 import { Section } from './section'
