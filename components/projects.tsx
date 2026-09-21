@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, Inbox, Mic } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Inbox, Mic } from 'lucide-react'
 import { GithubIcon } from './brand-icons'
 import { cn } from '@/lib/utils'
 import { ScrollStack } from './scroll-stack'
@@ -19,6 +19,7 @@ interface Project {
   workflow: string[]
   how: string
   tech: string[]
+  repo: string
 }
 
 const projects: Project[] = [
@@ -48,6 +49,7 @@ const projects: Project[] = [
       'Python',
       'Prompt Engineering',
     ],
+    repo: 'https://github.com/hamzatahir06/EmailAutomation-Agent',
   },
   {
     id: 'jarvis',
@@ -68,6 +70,7 @@ const projects: Project[] = [
     ],
     how: 'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
     tech: ['Python', 'SpeechRecognition', 'gTTS', 'pyttsx3', 'pygame', 'LLM'],
+    repo: 'https://github.com/hamzatahir06/Jarvis-Virtual-Assistant',
   },
 ]
 
@@ -128,19 +131,31 @@ function ProjectCard({ project }: { project: Project }) {
           <WorkflowFlow steps={project.workflow} />
         </div>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          className="mt-6 inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-        >
-          {open ? 'Hide details' : 'Read the breakdown'}
-          <ChevronDown
-            className={cn(
-              'h-4 w-4 transition-transform',
-              open && 'rotate-180',
-            )}
-          />
-        </button>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            <GithubIcon className="h-4 w-4" />
+            View on GitHub
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+          >
+            {open ? 'Hide details' : 'Read the breakdown'}
+            <ChevronDown
+              className={cn(
+                'h-4 w-4 transition-transform',
+                open && 'rotate-180',
+              )}
+            />
+          </button>
+        </div>
 
         <AnimatePresence initial={false}>
           {open && (
