@@ -36,7 +36,6 @@ Designed with a premium, Skills-first aesthetic, the website emphasizes executio
 * Framer Motion
 * Lucide React
 * shadcn/ui
-* Base UI
 
 ### Development Tools
 
