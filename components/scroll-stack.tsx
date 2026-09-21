@@ -7,17 +7,20 @@ import {
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
+  useSpring,
 } from 'framer-motion'
 
 const TOP = 96 // clears the fixed navbar (64px) with some breathing room
 const PEEK = 16 // how much of each earlier card stays visible above the next
 const SHRINK = 0.04 // how much a card shrinks for every card stacked on it
+const HOLD = '55vh' // scroll distance a pinned card stays readable before the next one arrives
 
-// Pins each child as it reaches the top of the screen so the next one slides
-// over it. Once the last child arrives, the whole stack scrolls away together.
+// Pins each child as it reaches the top of the screen and holds it there for a
+// stretch of scrolling, then lets the next one slide over it. Once the last
+// child arrives, the whole stack scrolls away together.
 export function ScrollStack({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col" style={{ gap: HOLD }}>
       {Children.toArray(children).map((child, i) => (
         <StackItem key={i} index={i}>
           {child}
@@ -36,7 +39,9 @@ function StackItem({
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [top, setTop] = useState(TOP + index * PEEK)
-  const scale = useMotionValue(1)
+  const rawScale = useMotionValue(1)
+  // Eases the shrink so it trails the scroll slightly instead of snapping.
+  const scale = useSpring(rawScale, { stiffness: 120, damping: 26, mass: 0.6 })
   const reduceMotion = useReducedMotion()
   const { scrollY } = useScroll()
 
@@ -79,7 +84,7 @@ function StackItem({
         (bottom - next.getBoundingClientRect().top) / (bottom - pinnedTop)
       covered += Math.min(Math.max(progress, 0), 1)
     }
-    scale.set(1 - covered * SHRINK)
+    rawScale.set(1 - covered * SHRINK)
   })
 
   return (
