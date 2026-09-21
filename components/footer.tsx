@@ -8,7 +8,6 @@ export function Footer() {
           </span>
           © {new Date().getFullYear()} Hamza Tahir
         </p>
-        <p></p>
       </div>
     </footer>
   )
