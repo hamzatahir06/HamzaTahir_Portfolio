@@ -70,7 +70,6 @@ hamza-tahir-portfolio/
 * Interactive Technology Graph
 * Featured Projects
 * Engineering Philosophy
-* Learning Journey Timeline
 * Contact
 * Footer
 

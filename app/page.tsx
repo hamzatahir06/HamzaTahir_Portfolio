@@ -7,7 +7,6 @@ import { Philosophy } from '@/components/philosophy'
 import { Projects } from '@/components/projects'
 import { Skills } from '@/components/skills'
 import { TechGraph } from '@/components/tech-graph'
-import { Timeline } from '@/components/timeline'
 
 export default function Page() {
   return (
@@ -20,7 +19,6 @@ export default function Page() {
         <TechGraph />
         <Skills />
         <Philosophy />
-        <Timeline />
         <Contact />
       </main>
       <Footer />
