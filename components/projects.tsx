@@ -1,38 +1,119 @@
 'use client'
 
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, ChevronDown, Inbox, Mic } from 'lucide-react'
+import { useState, type MouseEvent } from 'react'
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from 'framer-motion'
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Inbox,
+  Mic,
+  ScanSearch,
+} from 'lucide-react'
 import { GithubIcon } from './brand-icons'
 import { cn } from '@/lib/utils'
 import { ScrollStack } from './scroll-stack'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
 
+// One block of the expanded breakdown. Untitled sections read as a story,
+// and `wide` sections span both columns on larger screens.
+interface BreakdownSection {
+  title?: string
+  paragraphs: string[]
+  wide?: boolean
+}
+
 interface Project {
   id: string
   name: string
   tagline: string
   icon: typeof Inbox
-  problem: string
-  solution: string
   workflow: string[]
-  how: string
+  breakdown: BreakdownSection[]
   tech: string[]
   repo: string
+  demo?: string
 }
 
 const projects: Project[] = [
+  {
+    id: 'veritas-ai',
+    name: 'Veritas AI',
+    tagline:
+      "For the night before the deadline, when you need real sources and don't have time to find them.",
+    icon: ScanSearch,
+    workflow: [
+      'You give it a substantive topic',
+      'It searches like you would (maybe better), but faster',
+      'Skips the junk sites',
+      'Hands you a report with every source linked',
+    ],
+    breakdown: [
+      {
+        title: 'The problem',
+        paragraphs: [
+          'Finding sources you can trust takes longer than the work they are for. The first page of results is ads, forum answers and blogs that cite nothing, and much of what remains copies itself. Whether it’s an assignment due tomorrow, a briefing needed before a meeting, or a claim worth checking, forty minutes later you have twenty tabs open and one usable link.',
+        ],
+      },
+      {
+        title: 'The solution',
+        paragraphs: [
+          'A research agent that does the digging for you. Give it a substantive topic and it plans its own searches, sets aside unreliable sites, keeps the official and credible ones, and writes up what it found with every source linked, so you can check it yourself. You watch it work in real time, and at the end you get a Word doc or PDF you can use straight away.',
+        ],
+      },
+      {
+        title: 'How it works',
+        wide: true,
+        paragraphs: [
+          'The agent judges how much research a topic needs: a narrow one gets a single search, a broad one gets several from different angles, and it stops once coverage is solid. It searches the live web through Tavily and peer-reviewed papers through OpenAlex, then ranks every result by source authority in code rather than leaving it to the model, placing official, government and academic sources first. Gemini handles the reasoning, with Groq taking over automatically if Gemini hits a limit. Each search streams from the FastAPI backend to the React interface as it happens, and finished reports are saved to your account with Supabase.',
+        ],
+      },
+    ],
+    tech: [
+      'Gemini API',
+      'Groq',
+      'Tavily',
+      'FastAPI',
+      'React',
+      'Supabase',
+      'Python',
+    ],
+    repo: 'https://github.com/hamzatahir06/veritas-ai',
+    demo: 'https://veritas-ai-smoky.vercel.app',
+  },
   {
     id: 'inbox-intelligence',
     name: 'Inbox Intelligence',
     tagline:
       'An AI system that prioritizes leads, filters noise, and helps sales teams focus on conversations that actually matter.',
     icon: Inbox,
-    problem:
-      'Sales teams lose hours triaging inboxes by hand. High-intent leads sit unnoticed next to newsletters and noise, and response time slips — which directly costs revenue.',
-    solution:
-      'A workflow automation system that reads incoming email, uses LLM reasoning to understand intent, classifies and prioritizes each message, then pushes the important ones straight to the team in Slack.',
+    breakdown: [
+      {
+        title: 'The problem',
+        paragraphs: [
+          'Sales teams lose hours triaging inboxes by hand. High-intent leads sit unnoticed next to newsletters and noise, and response time slips — which directly costs revenue.',
+        ],
+      },
+      {
+        title: 'The solution',
+        paragraphs: [
+          'A workflow automation system that reads incoming email, uses LLM reasoning to understand intent, classifies and prioritizes each message, then pushes the important ones straight to the team in Slack.',
+        ],
+      },
+      {
+        title: 'How it works',
+        wide: true,
+        paragraphs: [
+          'The Gmail API streams new messages into a Python service. Each message is passed to a reasoning model with a purpose-built prompt that scores intent and category. High-priority results are delivered instantly to the sales channel via the Slack API, so the right opportunity reaches a human in seconds — not hours.',
+        ],
+      },
+    ],
     workflow: [
       'Email arrives',
       'AI analyzes intent',
@@ -41,7 +122,6 @@ const projects: Project[] = [
       'Notifies Slack',
       'Team saves hours',
     ],
-    how: 'The Gmail API streams new messages into a Python service. Each message is passed to a reasoning model with a purpose-built prompt that scores intent and category. High-priority results are delivered instantly to the sales channel via the Slack API, so the right opportunity reaches a human in seconds — not hours.',
     tech: [
       'Gemini API',
       'Gmail API',
@@ -57,10 +137,27 @@ const projects: Project[] = [
     tagline:
       'A voice-first assistant that holds natural conversation and takes action on your system — hands free.',
     icon: Mic,
-    problem:
-      'Switching between typing, searching, and running tasks breaks focus. Getting quick answers or triggering an action often means too many manual steps.',
-    solution:
-      'A context-aware voice assistant that listens, understands natural speech, responds conversationally, and automates system tasks — so interaction feels like talking to a capable teammate.',
+    breakdown: [
+      {
+        title: 'The problem',
+        paragraphs: [
+          'Switching between typing, searching, and running tasks breaks focus. Getting quick answers or triggering an action often means too many manual steps.',
+        ],
+      },
+      {
+        title: 'The solution',
+        paragraphs: [
+          'A context-aware voice assistant that listens, understands natural speech, responds conversationally, and automates system tasks — so interaction feels like talking to a capable teammate.',
+        ],
+      },
+      {
+        title: 'How it works',
+        wide: true,
+        paragraphs: [
+          'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
+        ],
+      },
+    ],
     workflow: [
       'You speak',
       'Speech to text',
@@ -68,7 +165,6 @@ const projects: Project[] = [
       'Takes action',
       'Speaks back',
     ],
-    how: 'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
     tech: ['Python', 'SpeechRecognition', 'gTTS', 'pyttsx3', 'pygame', 'LLM'],
     repo: 'https://github.com/hamzatahir06/Jarvis-Virtual-Assistant',
   },
@@ -90,6 +186,55 @@ function WorkflowFlow({ steps }: { steps: string[] }) {
         </div>
       ))}
     </div>
+  )
+}
+
+// A soft velvet pill that tilts toward the cursor, with a sheen that follows
+// it, and squishes when pressed.
+function DemoButton({ href }: { href: string }) {
+  const reduceMotion = useReducedMotion()
+  const spring = { stiffness: 220, damping: 18, mass: 0.5 }
+  const rotateX = useSpring(useMotionValue(0), spring)
+  const rotateY = useSpring(useMotionValue(0), spring)
+
+  function handleMove(e: MouseEvent<HTMLAnchorElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    e.currentTarget.style.setProperty('--mx', `${x * 100}%`)
+    e.currentTarget.style.setProperty('--my', `${y * 100}%`)
+    if (reduceMotion) return
+    rotateY.set((x - 0.5) * 22)
+    rotateX.set((0.5 - y) * 22)
+  }
+
+  function handleLeave(e: MouseEvent<HTMLAnchorElement>) {
+    e.currentTarget.style.removeProperty('--mx')
+    e.currentTarget.style.removeProperty('--my')
+    rotateX.set(0)
+    rotateY.set(0)
+  }
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      style={{ rotateX, rotateY, transformPerspective: 500 }}
+      whileHover={reduceMotion ? undefined : { scale: 1.06 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.95, scaleY: 0.9 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+      className="velvet-green inline-flex h-10 items-center gap-2 rounded-full px-5 text-sm font-bold tracking-wide"
+    >
+      <span className="relative flex h-2 w-2" aria-hidden="true">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-200/70" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-200" />
+      </span>
+      Live demo
+      <ArrowUpRight className="h-4 w-4" />
+    </motion.a>
   )
 }
 
@@ -132,11 +277,12 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
+          {project.demo && <DemoButton href={project.demo} />}
           <a
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="inline-flex h-10 items-center gap-2 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             <GithubIcon className="h-4 w-4" />
             View on GitHub
@@ -145,7 +291,7 @@ function ProjectCard({ project }: { project: Project }) {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            className="inline-flex h-10 items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
           >
             {open ? 'Hide details' : 'Read the breakdown'}
             <ChevronDown
@@ -167,30 +313,29 @@ function ProjectCard({ project }: { project: Project }) {
               className="overflow-hidden"
             >
               <div className="mt-6 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    The problem
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.problem}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    The solution
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.solution}
-                  </p>
-                </div>
-                <div className="sm:col-span-2">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    How it works
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.how}
-                  </p>
-                </div>
+                {project.breakdown.map((section, i) => (
+                  <div key={i} className={cn(section.wide && 'sm:col-span-2')}>
+                    {section.title && (
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        {section.title}
+                      </p>
+                    )}
+                    <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-muted-foreground">
+                      {section.paragraphs.map((text, j) => (
+                        <p
+                          key={j}
+                          className={cn(
+                            !section.title &&
+                              j === 0 &&
+                              'text-base font-semibold text-foreground',
+                          )}
+                        >
+                          {text}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           )}
