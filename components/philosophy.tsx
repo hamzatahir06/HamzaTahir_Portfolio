@@ -1,5 +1,6 @@
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
+import { Section } from './section'
 
 const steps = [
   {
@@ -31,30 +32,28 @@ const steps = [
 
 export function Philosophy() {
   return (
-    <section className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="How I Build"
-          title="A simple loop, applied with discipline."
-          description="Good AI products aren't magic — they're the result of understanding a problem deeply and refusing to ship until it genuinely works."
-        />
+    <Section>
+      <SectionHeading
+        eyebrow="How I Build"
+        title="A simple loop, applied with discipline."
+        description="Good AI products aren't magic — they're the result of understanding a problem deeply and refusing to ship until it genuinely works."
+      />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step, i) => (
-            <Reveal key={step.n} delay={i}>
-              <div className="group relative h-full rounded-2xl border border-border bg-card/50 p-6 transition-colors hover:border-primary/40">
-                <span className="font-mono text-sm text-primary">{step.n}</span>
-                <h3 className="mt-3 text-sm font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {step.body}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {steps.map((step, i) => (
+          <Reveal key={step.n} delay={i}>
+            <div className="group relative h-full rounded-2xl border border-border bg-card/50 p-6 transition-colors hover:border-primary/40">
+              <span className="font-mono text-sm text-primary">{step.n}</span>
+              <h3 className="mt-3 text-sm font-semibold text-foreground">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {step.body}
+              </p>
+            </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   )
 }

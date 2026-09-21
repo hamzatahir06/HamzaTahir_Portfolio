@@ -6,6 +6,7 @@ import { ChevronDown, Inbox, Mic } from 'lucide-react'
 import { GithubIcon } from './brand-icons'
 import { cn } from '@/lib/utils'
 import { SectionHeading } from './section-heading'
+import { Section } from './section'
 
 interface Project {
   id: string
@@ -196,32 +197,29 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Featured Work"
-            title="Systems that do the work, not demos that describe it."
-            description="Each project started with a real problem and ended with software that runs on its own. Expand any card to see the reasoning behind it."
-          />
-          <a
-            href="https://github.com/hamzatahir06"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <GithubIcon className="h-4 w-4" />
-            All repositories
-          </a>
-        </div>
-
-        <div className="mt-12 grid gap-6">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
-          ))}
-        </div>
+    <Section id="projects" divider>
+      <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <SectionHeading
+          eyebrow="Featured Work"
+          title="Systems that do the work, not demos that describe it."
+          description="Each project started with a real problem and ended with software that runs on its own. Expand any card to see the reasoning behind it."
+        />
+        <a
+          href="https://github.com/hamzatahir06"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <GithubIcon className="h-4 w-4" />
+          All repositories
+        </a>
       </div>
-    </section>
+
+      <div className="mt-12 grid gap-6">
+        {projects.map((project, i) => (
+          <ProjectCard key={project.id} project={project} index={i} />
+        ))}
+      </div>
+    </Section>
   )
 }
