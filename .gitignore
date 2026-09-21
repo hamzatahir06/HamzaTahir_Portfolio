@@ -18,3 +18,5 @@ docs/DESIGN_SYSTEM.md
 node_modules
 .next/
 .DS_Store
+next-env.d.ts
+*.tsbuildinfo
