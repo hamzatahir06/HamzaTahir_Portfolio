@@ -78,6 +78,32 @@ Every section is designed to communicate not only technical skills but also how 
 
 ## 💼 Featured Projects
 
+### Veritas AI
+
+An autonomous research agent that searches, sets aside unreliable sources, and writes a report with every source linked.
+
+**Live demo:** https://veritas-ai-smoky.vercel.app
+
+**Highlights**
+
+* Decides how many searches a topic needs, from one to several
+* Searches the live web and peer-reviewed papers
+* Ranks sources by authority: official, government and academic first
+* Streams each search to the screen as it happens
+* Exports finished reports as Word and PDF
+
+**Technologies**
+
+* Python
+* FastAPI
+* Gemini API
+* Groq
+* Tavily
+* React
+* Supabase
+
+---
+
 ### Inbox Intelligence
 
 An autonomous AI workflow that helps sales teams focus on conversations that matter.
