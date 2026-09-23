@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, scrollToId } from '@/lib/utils'
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -27,9 +27,12 @@ export function Navbar() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
+        const visible = entries.filter((entry) => entry.isIntersecting)
+        if (visible.length === 0) return
+        const topmost = visible.reduce((a, b) =>
+          a.boundingClientRect.top <= b.boundingClientRect.top ? a : b,
+        )
+        setActive(topmost.target.id)
       },
       { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
     )
@@ -42,7 +45,7 @@ export function Navbar() {
 
   const go = (id: string) => {
     setOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    scrollToId(id)
   }
 
   return (

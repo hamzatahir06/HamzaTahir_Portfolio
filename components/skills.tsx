@@ -1,14 +1,7 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import {
-  Bot,
-  CodeXml,
-  Cpu,
-  Library,
-  Plug,
-  Wrench,
-} from 'lucide-react'
+import { Bot, CodeXml, Cpu, Library, Plug, Wrench } from 'lucide-react'
+import { Card } from './ui/card'
+import { Pill } from './ui/pill'
+import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
 
@@ -21,7 +14,12 @@ const groups = [
   {
     icon: Cpu,
     title: 'LLM & Intelligence',
-    items: ['LLM Integration', 'Reasoning Models', 'Context Design', 'Tool Use'],
+    items: [
+      'LLM Integration',
+      'Reasoning Models',
+      'Context Design',
+      'Tool Use',
+    ],
   },
   {
     icon: Plug,
@@ -31,7 +29,7 @@ const groups = [
   {
     icon: Wrench,
     title: 'Tools & Environment',
-    items: ['VS Code', 'GitHub','Railway', 'Cursor', 'Replit'],
+    items: ['VS Code', 'GitHub', 'Railway', 'Render', 'Supabase'],
   },
   {
     icon: Library,
@@ -41,7 +39,12 @@ const groups = [
   {
     icon: Bot,
     title: 'Systems & Patterns',
-    items: ['Workflow Design', 'API Chaining', 'Event Triggers', 'Notifications'],
+    items: [
+      'Workflow Design',
+      'API Chaining',
+      'Event Triggers',
+      'Notifications',
+    ],
   },
 ]
 
@@ -55,38 +58,30 @@ export function Skills() {
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {groups.map((group, gi) => (
-          <motion.div
-            key={group.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              duration: 0.5,
-              delay: gi * 0.06,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="group rounded-2xl border border-border bg-card/50 p-6 transition-colors hover:border-primary/40"
-          >
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-secondary text-primary">
-                <group.icon className="h-5 w-5" />
-              </span>
-              <h3 className="text-sm font-semibold text-foreground">
-                {group.title}
-              </h3>
-            </div>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-lg border border-border bg-secondary/40 px-3 py-1.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20 group-hover:text-foreground"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        {groups.map((group, i) => (
+          <Reveal key={group.title} delay={i}>
+            <Card>
+              <div className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-secondary text-primary">
+                  <group.icon className="h-5 w-5" />
+                </span>
+                <h3 className="text-sm font-semibold text-foreground">
+                  {group.title}
+                </h3>
+              </div>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <Pill
+                    as="li"
+                    key={item}
+                    className="group-hover:border-primary/20 group-hover:text-foreground"
+                  >
+                    {item}
+                  </Pill>
+                ))}
+              </ul>
+            </Card>
+          </Reveal>
         ))}
       </div>
     </Section>

@@ -8,15 +8,11 @@ import {
   useReducedMotion,
   useSpring,
 } from 'framer-motion'
-import {
-  ArrowUpRight,
-  ChevronDown,
-  Inbox,
-  Mic,
-  ScanSearch,
-} from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Inbox, Mic, ScanSearch } from 'lucide-react'
 import { GithubIcon } from './brand-icons'
+import { EASE } from '@/lib/motion'
 import { cn } from '@/lib/utils'
+import { Pill } from './ui/pill'
 import { ScrollStack } from './scroll-stack'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
@@ -50,32 +46,29 @@ const projects: Project[] = [
     icon: ScanSearch,
     workflow: [
       'You give it a substantive topic',
-      'It searches like you would (maybe better), but faster',
+      'It searches like you would (maybe better), and faster',
       'Skips the junk sites',
       'Hands you a report with every source linked',
     ],
     breakdown: [
       {
         title: 'The problem',
-        text:
-          'Finding sources you can trust takes longer than the work they are for. The first page of results is ads, forum answers and blogs that cite nothing, and much of what remains copies itself. Whether it’s an assignment due tomorrow, a briefing needed before a meeting, or a claim worth checking, forty minutes later you have twenty tabs open and one usable link.',
+        text: 'Finding sources you can trust takes longer than the work they are for. The first page of results is ads, forum answers and blogs that cite nothing, and much of what remains copies itself. Whether it’s an assignment due tomorrow, a briefing needed before a meeting, or a claim worth checking, forty minutes later you have twenty tabs open and one usable link.',
       },
       {
         title: 'The solution',
-        text:
-          'A research agent that does the digging for you. Give it a substantive topic and it plans its own searches, sets aside unreliable sites, keeps the official and credible ones, and writes up what it found with every source linked, so you can check it yourself. You watch it work in real time, and at the end you get a Word doc or PDF you can use straight away.',
+        text: 'A research agent that does the digging for you. Give it a substantive topic and it plans its own searches, sets aside unreliable sites, keeps the official and credible ones, and writes up what it found with every source linked, so you can check it yourself. You watch it work in real time, and at the end you get a Word doc or PDF you can use straight away.',
       },
       {
         title: 'How it works',
         wide: true,
-        text:
-          'The agent judges how much research a topic needs: a narrow one gets a single search, a broad one gets several from different angles, and it stops once coverage is solid. It searches the live web through Tavily and peer-reviewed papers through OpenAlex, then ranks every result by source authority in code rather than leaving it to the model, placing official, government and academic sources first. Gemini handles the reasoning, with Groq taking over automatically if Gemini hits a limit. Each search streams from the FastAPI backend to the React interface as it happens, and finished reports are saved to your account with Supabase.',
+        text: 'The agent judges how much research a topic needs: a narrow one gets a single search, a broad one gets several from different angles, and it stops once coverage is solid. It searches the live web through Tavily and peer-reviewed papers through OpenAlex, then ranks every result by source authority in code rather than leaving it to the model, placing official, government and academic sources first. Gemini handles the reasoning, with Groq taking over automatically if Gemini hits a limit. Each search streams from the FastAPI backend to the React interface as it happens, and finished reports are saved to your account with Supabase.',
       },
     ],
     tech: [
       'Gemini API',
-      'Groq',
-      'Tavily',
+      'Groq API',
+      'Tavily for Web-Search',
       'FastAPI',
       'React',
       'Supabase',
@@ -90,24 +83,6 @@ const projects: Project[] = [
     tagline:
       'An AI system that prioritizes leads, filters noise, and helps sales teams focus on conversations that actually matter.',
     icon: Inbox,
-    breakdown: [
-      {
-        title: 'The problem',
-        text:
-          'Sales teams lose hours triaging inboxes by hand. High-intent leads sit unnoticed next to newsletters and noise, and response time slips — which directly costs revenue.',
-      },
-      {
-        title: 'The solution',
-        text:
-          'A workflow automation system that reads incoming email, uses LLM reasoning to understand intent, classifies and prioritizes each message, then pushes the important ones straight to the team in Slack.',
-      },
-      {
-        title: 'How it works',
-        wide: true,
-        text:
-          'The Gmail API streams new messages into a Python service. Each message is passed to a reasoning model with a purpose-built prompt that scores intent and category. High-priority results are delivered instantly to the sales channel via the Slack API, so the right opportunity reaches a human in seconds — not hours.',
-      },
-    ],
     workflow: [
       'Email arrives',
       'AI analyzes intent',
@@ -115,6 +90,21 @@ const projects: Project[] = [
       'Prioritizes',
       'Notifies Slack',
       'Team saves hours',
+    ],
+    breakdown: [
+      {
+        title: 'The problem',
+        text: 'Sales teams lose hours triaging inboxes by hand. High-intent leads sit unnoticed next to newsletters and noise, and response time slips — which directly costs revenue.',
+      },
+      {
+        title: 'The solution',
+        text: 'A workflow automation system that reads incoming email, uses LLM reasoning to understand intent, classifies and prioritizes each message, then pushes the important ones straight to the team in Slack.',
+      },
+      {
+        title: 'How it works',
+        wide: true,
+        text: 'The Gmail API streams new messages into a Python service. Each message is passed to a reasoning model with a purpose-built prompt that scores intent and category. High-priority results are delivered instantly to the sales channel via the Slack API, so the right opportunity reaches a human in seconds — not hours.',
+      },
     ],
     tech: [
       'Gemini API',
@@ -131,30 +121,27 @@ const projects: Project[] = [
     tagline:
       'A voice-first assistant that holds natural conversation and takes action on your system — hands free.',
     icon: Mic,
-    breakdown: [
-      {
-        title: 'The problem',
-        text:
-          'Switching between typing, searching, and running tasks breaks focus. Getting quick answers or triggering an action often means too many manual steps.',
-      },
-      {
-        title: 'The solution',
-        text:
-          'A context-aware voice assistant that listens, understands natural speech, responds conversationally, and automates system tasks — so interaction feels like talking to a capable teammate.',
-      },
-      {
-        title: 'How it works',
-        wide: true,
-        text:
-          'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
-      },
-    ],
     workflow: [
       'You speak',
       'Speech to text',
       'AI understands',
       'Takes action',
       'Speaks back',
+    ],
+    breakdown: [
+      {
+        title: 'The problem',
+        text: 'Switching between typing, searching, and running tasks breaks focus. Getting quick answers or triggering an action often means too many manual steps.',
+      },
+      {
+        title: 'The solution',
+        text: 'A context-aware voice assistant that listens, understands natural speech, responds conversationally, and automates system tasks — so interaction feels like talking to a capable teammate.',
+      },
+      {
+        title: 'How it works',
+        wide: true,
+        text: 'SpeechRecognition captures and transcribes audio, which is interpreted by an LLM for intent and context. Responses are generated conversationally and spoken back with gTTS and pyttsx3, while pygame handles audio playback — creating a smooth, continuous voice loop.',
+      },
     ],
     tech: ['Python', 'SpeechRecognition', 'gTTS', 'pyttsx3', 'pygame', 'LLM'],
     repo: 'https://github.com/hamzatahir06/Jarvis-Virtual-Assistant',
@@ -238,7 +225,7 @@ function ProjectCard({ project }: { project: Project }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, ease: EASE }}
       className="surface-purple group relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-black/50 transition-colors hover:border-primary/50"
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -300,7 +287,7 @@ function ProjectCard({ project }: { project: Project }) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.35, ease: EASE }}
               className="overflow-hidden"
             >
               <div className="mt-6 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
@@ -324,12 +311,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {project.tech.map((t) => (
-            <span
-              key={t}
-              className="rounded-lg border border-border bg-secondary/40 px-3 py-1 text-xs text-muted-foreground"
-            >
-              {t}
-            </span>
+            <Pill key={t}>{t}</Pill>
           ))}
         </div>
       </div>

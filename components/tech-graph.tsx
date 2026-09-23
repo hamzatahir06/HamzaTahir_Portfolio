@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Workflow,
 } from 'lucide-react'
+import { EASE } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
@@ -75,7 +76,7 @@ export function TechGraph() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
+                transition={{ duration: 0.4, delay: i * 0.05, ease: EASE }}
                 className={cn(
                   'flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition-all',
                   active === i
@@ -125,7 +126,7 @@ export function TechGraph() {
             key={active}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.35, ease: EASE }}
             className="relative"
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 font-mono text-xs text-primary">

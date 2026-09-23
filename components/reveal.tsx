@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from 'framer-motion'
 import type { ReactNode } from 'react'
+import { EASE } from '@/lib/motion'
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -11,7 +12,7 @@ const variants: Variants = {
     transition: {
       duration: 0.6,
       delay: i * 0.08,
-      ease: [0.22, 1, 0.36, 1],
+      ease: EASE,
     },
   }),
 }

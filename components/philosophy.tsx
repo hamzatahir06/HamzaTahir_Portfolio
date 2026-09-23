@@ -1,3 +1,4 @@
+import { Card } from './ui/card'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
@@ -42,7 +43,7 @@ export function Philosophy() {
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {steps.map((step, i) => (
           <Reveal key={step.n} delay={i}>
-            <div className="group relative h-full rounded-2xl border border-border bg-card/50 p-6 transition-colors hover:border-primary/40">
+            <Card>
               <span className="font-mono text-sm text-primary">{step.n}</span>
               <h3 className="mt-3 text-sm font-semibold text-foreground">
                 {step.title}
@@ -50,7 +51,7 @@ export function Philosophy() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.body}
               </p>
-            </div>
+            </Card>
           </Reveal>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import { Boxes, GitBranch, Workflow, Zap } from 'lucide-react'
+import { Card } from './ui/card'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
 import { Section } from './section'
@@ -63,7 +64,7 @@ export function About() {
         <div className="grid gap-4 sm:grid-cols-2">
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={i}>
-              <div className="group h-full rounded-2xl border border-border bg-card/50 p-5 transition-colors hover:border-primary/40">
+              <Card className="p-5">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
                   <p.icon className="h-5 w-5" />
                 </span>
@@ -73,7 +74,7 @@ export function About() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {p.body}
                 </p>
-              </div>
+              </Card>
             </Reveal>
           ))}
         </div>
