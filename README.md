@@ -10,15 +10,15 @@ Designed with a premium, Skills-first aesthetic, the website emphasizes executio
 
 ## ✨ Highlights
 
-* 🎯 One-page recruiter-focused experience
-* ⚡ Built with Next.js 16 App Router
-* 🎨 Modern UI inspired by Vercel, Linear, and Anthropic
-* ✨ Smooth animations powered by Framer Motion
-* 📱 Fully responsive across desktop, tablet, and mobile
-* 🧩 Component-based architecture
-* 🌙 Premium dark theme
-* 📄 Integrated downloadable résumé
-* ⚙️ Optimized for performance, accessibility, and maintainability
+- 🎯 One-page recruiter-focused experience
+- ⚡ Built with Next.js 16 App Router
+- 🎨 Modern UI inspired by Vercel, Linear, and Anthropic
+- ✨ Smooth animations powered by Framer Motion
+- 📱 Fully responsive across desktop, tablet, and mobile
+- 🧩 Component-based architecture
+- 🌙 Premium dark theme
+- 📄 Integrated downloadable résumé
+- ⚙️ Optimized for performance, accessibility, and maintainability
 
 ---
 
@@ -26,22 +26,22 @@ Designed with a premium, Skills-first aesthetic, the website emphasizes executio
 
 ### Frontend
 
-* Next.js 16
-* React 19
-* TypeScript
-* Tailwind CSS
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
 
 ### UI & Animation
 
-* Framer Motion
-* Lucide React
+- Framer Motion
+- Lucide React
 
 ### Development Tools
 
-* PNPM
-* Vercel
-* Git
-* GitHub
+- PNPM
+- Vercel
+- Git
+- GitHub
 
 ---
 
@@ -63,14 +63,14 @@ hamza-tahir-portfolio/
 
 ## 🖥️ Featured Sections
 
-* Hero
-* About
-* Skills
-* Interactive Technology Graph
-* Featured Projects
-* Engineering Philosophy
-* Contact
-* Footer
+- Hero
+- Featured Projects
+- About
+- Interactive Technology Graph
+- Skills
+- Engineering Philosophy
+- Contact
+- Footer
 
 Every section is designed to communicate not only technical skills but also how those skills translate into solving real-world business problems.
 
@@ -86,21 +86,21 @@ An autonomous research agent that searches, sets aside unreliable sources, and w
 
 **Highlights**
 
-* Decides how many searches a topic needs, from one to several
-* Searches the live web and peer-reviewed papers
-* Ranks sources by authority: official, government and academic first
-* Streams each search to the screen as it happens
-* Exports finished reports as Word and PDF
+- Decides how many searches a topic needs, from one to several
+- Searches the live web and peer-reviewed papers
+- Ranks sources by authority: official, government and academic first
+- Streams each search to the screen as it happens
+- Exports finished reports as Word and PDF
 
 **Technologies**
 
-* Python
-* FastAPI
-* Gemini API
-* Groq
-* Tavily
-* React
-* Supabase
+- Python
+- FastAPI
+- Gemini API
+- Groq
+- Tavily
+- React
+- Supabase
 
 ---
 
@@ -110,18 +110,18 @@ An autonomous AI workflow that helps sales teams focus on conversations that mat
 
 **Highlights**
 
-* Reads and analyzes incoming emails
-* Detects low-value and irrelevant messages
-* Prioritizes potential leads
-* Sends intelligent Slack notifications
-* Eliminates repetitive manual email triage
+- Reads and analyzes incoming emails
+- Detects low-value and irrelevant messages
+- Prioritizes potential leads
+- Sends intelligent Slack notifications
+- Eliminates repetitive manual email triage
 
 **Technologies**
 
-* Python
-* Google Gemini API
-* Gmail API
-* Slack API
+- Python
+- Google Gemini API
+- Gmail API
+- Slack API
 
 ---
 
@@ -131,18 +131,18 @@ A voice-enabled AI assistant capable of understanding natural language, respondi
 
 **Highlights**
 
-* Voice interaction
-* Context-aware conversations
-* Intelligent command execution
-* LLM-powered responses
+- Voice interaction
+- Context-aware conversations
+- Intelligent command execution
+- LLM-powered responses
 
 **Technologies**
 
-* Python
-* Gemini API
-* SpeechRecognition
-* gTTS
-* pyttsx3
+- Python
+- Gemini API
+- SpeechRecognition
+- gTTS
+- pyttsx3
 
 ---
 
@@ -184,10 +184,10 @@ http://localhost:3000
 
 The portfolio is fully responsive and optimized for:
 
-* Desktop
-* Laptop
-* Tablet
-* Mobile
+- Desktop
+- Laptop
+- Tablet
+- Mobile
 
 The layout adapts seamlessly to different screen sizes while maintaining smooth animations and readability.
 
@@ -205,14 +205,14 @@ Instead of listing technologies, the portfolio focuses on communicating engineer
 
 ## 🧠 What This Project Demonstrates
 
-* Modern React architecture
-* Next.js App Router
-* Component-driven development
-* Responsive design
-* Motion design with Framer Motion
-* Clean UI/UX principles
-* Performance-first development
-* Professional developer branding
+- Modern React architecture
+- Next.js App Router
+- Component-driven development
+- Responsive design
+- Motion design with Framer Motion
+- Clean UI/UX principles
+- Performance-first development
+- Professional developer branding
 
 ---
 
@@ -220,13 +220,13 @@ Instead of listing technologies, the portfolio focuses on communicating engineer
 
 Planned enhancements include:
 
-* Interactive project demos
-* Case studies for each AI project
-* Blog for AI engineering and automation
-* Light/Dark theme toggle
-* GitHub activity integration
-* Live project analytics
-* Multi-language support
+- Interactive project demos
+- Case studies for each AI project
+- Blog for AI engineering and automation
+- Light/Dark theme toggle
+- GitHub activity integration
+- Live project analytics
+- Multi-language support
 
 ---
 
@@ -239,7 +239,7 @@ https://hamzatahir-portfolio.vercel.app/
 https://github.com/hamzatahir06
 
 **LinkedIn**
-https://www.linkedin.com/in/hamza-tahir
+https://www.linkedin.com/in/hamza-tahir-a5b16741b/
 
 **Email**
 [hamzatahir.dev.ai@gmail.com](mailto:hamzatahir.dev.ai@gmail.com)
