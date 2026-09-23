@@ -1,0 +1,4 @@
+# One line ending everywhere, regardless of who clones this on which OS.
+* text=auto eol=lf
+
+*.pdf binary
