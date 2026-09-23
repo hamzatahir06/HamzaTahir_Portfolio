@@ -1,26 +1,39 @@
-import { Download, Mail } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './brand-icons'
+import type { CSSProperties } from 'react'
+import { Download } from 'lucide-react'
+import { GithubIcon, GmailIcon, LinkedinGlyphIcon } from './brand-icons'
 import { Reveal } from './reveal'
 import { Section } from './section'
 
+/* Each entry carries its platform's real brand colours: `tile` is the badge
+   background, `ink` the mark on top of it, `tint` the glow the card picks up.
+   Gmail's mark has its own fixed fills, so `ink` does not reach it. */
 const socials = [
   {
     icon: GithubIcon,
     label: 'GitHub',
     handle: '@hamzatahir06',
     href: 'https://github.com/hamzatahir06',
+    tile: '#181717',
+    ink: '#ffffff',
+    tint: '#ffffff',
   },
   {
-    icon: LinkedinIcon,
+    icon: LinkedinGlyphIcon,
     label: 'LinkedIn',
-    handle: 'in/hamzatahir',
-    href: 'https://linkedin.com',
+    handle: 'Hamza Tahir',
+    href: 'https://www.linkedin.com/in/hamza-tahir-a5b16741b/',
+    tile: '#0a66c2',
+    ink: '#ffffff',
+    tint: '#0a66c2',
   },
   {
-    icon: Mail,
+    icon: GmailIcon,
     label: 'Email',
     handle: 'hamzatahir.dev.ai@gmail.com',
     href: 'mailto:hamzatahir.dev.ai@gmail.com',
+    tile: '#ffffff',
+    ink: '#ffffff',
+    tint: '#ea4335',
   },
 ]
 
@@ -51,10 +64,14 @@ export function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-secondary/30 p-4 text-center transition-colors hover:border-primary/40"
+                  style={{ '--brand': s.tint } as CSSProperties}
+                  className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-secondary/30 p-4 text-center transition-colors hover:border-[color-mix(in_srgb,var(--brand)_45%,transparent)]"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
-                    <s.icon className="h-5 w-5" />
+                  <span
+                    style={{ backgroundColor: s.tile, color: s.ink }}
+                    className="grid h-11 w-11 shrink-0 place-items-center rounded-xl ring-1 ring-inset ring-white/15 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_22px_-6px_var(--brand)]"
+                  >
+                    <s.icon className="h-6 w-6" />
                   </span>
                   <span className="min-w-0">
                     <span className="block text-sm font-medium text-foreground">
