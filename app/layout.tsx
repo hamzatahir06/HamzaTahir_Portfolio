@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Hamza Tahir — Agentic AI Engineer',
   description:
-    'I build Autonomous, agentic AI systems that replace manual work and create real business value using Python, LLMs, and APIs.',
+    'I build AI systems that take repetitive work off your team, like sorting email, researching, and routing updates, so your people get their hours back.',
   keywords: [
     'AI Engineer',
     'Agentic AI',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hamza Tahir — Agentic AI Engineer',
     description:
-      'I build Autonomous, agentic AI systems that replace manual work and create real business value.',
+      'I build AI systems that take repetitive work off your team and give your people their hours back.',
     type: 'website',
   },
 }

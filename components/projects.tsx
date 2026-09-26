@@ -326,7 +326,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Featured Work"
           title="Systems that do the work, not demos that describe it."
-          description="Each project started with a real problem and ended with software that runs on its own. Expand any card to see the reasoning behind it."
+          description="Each one started with a problem that was costing someone time and ended with software that runs on its own. Open a card to see how."
         />
         <a
           href="https://github.com/hamzatahir06"

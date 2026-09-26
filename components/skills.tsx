@@ -54,7 +54,7 @@ export function Skills() {
       <SectionHeading
         eyebrow="Skills"
         title="The toolkit behind the systems I build."
-        description="Organized the way I actually use them — from the language and the models to the APIs and libraries that turn ideas into running automation."
+        description="What I build with, grouped by the job each one does."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

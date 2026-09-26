@@ -6,28 +6,28 @@ import { Section } from './section'
 const steps = [
   {
     n: '01',
-    title: 'Understand the problem',
-    body: 'Before any code, I find the real friction — the task that drains time or delays a decision.',
+    title: 'Find the real cost',
+    body: 'Where are the hours going, and which delays are losing you money? That gets fixed first.',
   },
   {
     n: '02',
-    title: 'Design the workflow',
-    body: 'I map the flow first: what triggers it, what decisions happen, and where the value lands.',
+    title: 'Map the workflow',
+    body: 'What starts it, what gets decided along the way, and where the result needs to land.',
   },
   {
     n: '03',
-    title: 'Integrate intelligence',
-    body: 'I add LLM reasoning exactly where judgement is needed — never more, never for show.',
+    title: 'Add AI where it pays',
+    body: 'Models make the calls that need judgement. Everything else stays plain, predictable code.',
   },
   {
     n: '04',
-    title: 'Automate the repetition',
-    body: 'The system handles the loop end to end so humans only touch what genuinely needs them.',
+    title: 'Automate the loop',
+    body: 'The system runs end to end. People only step in when a decision truly needs them.',
   },
   {
     n: '05',
-    title: 'Ship usable software',
-    body: 'It only counts when it runs, saves time, and someone actually relies on it.',
+    title: 'Ship and prove it',
+    body: 'It counts when it runs, saves the time it promised, and your team relies on it.',
   },
 ]
 
@@ -35,9 +35,9 @@ export function Philosophy() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="How I Build"
-        title="A simple loop, applied with discipline."
-        description="Good AI products aren't magic — they're the result of understanding a problem deeply and refusing to ship until it genuinely works."
+        eyebrow="How I Work"
+        title="From the problem to software that runs."
+        description="Five steps, none skipped. Nothing ships until it works on your real data."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">

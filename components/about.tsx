@@ -1,4 +1,4 @@
-import { Boxes, GitBranch, Workflow, Zap } from 'lucide-react'
+import { Clock, Rocket, ShieldCheck, Workflow } from 'lucide-react'
 import { Card } from './ui/card'
 import { Reveal } from './reveal'
 import { SectionHeading } from './section-heading'
@@ -6,24 +6,24 @@ import { Section } from './section'
 
 const principles = [
   {
-    icon: Zap,
-    title: 'I automate the repetitive',
-    body: 'If a task is manual, predictable, and draining, I see a system waiting to be built.',
+    icon: Clock,
+    title: 'Hours back',
+    body: 'Repetitive work moves to software. Your people spend their time on the work that needs them.',
   },
   {
     icon: Workflow,
-    title: 'I think in workflows',
-    body: 'Real value comes from connecting APIs and models into flows that run on their own.',
+    title: 'Runs on its own',
+    body: 'No one has to start it, watch it, or pass things along. It triggers, decides, and delivers.',
   },
   {
-    icon: Boxes,
-    title: 'I study how agents think',
-    body: 'I care about reasoning, tool use, and context — not just prompts that happen to work.',
+    icon: ShieldCheck,
+    title: 'Reliable, not clever',
+    body: 'AI goes only where judgement is needed. Everything else is plain code that behaves the same every time.',
   },
   {
-    icon: GitBranch,
-    title: 'I ship, not tinker',
-    body: 'I chase working products that solve problems, not tutorials I never finish.',
+    icon: Rocket,
+    title: 'Shipped, not pitched',
+    body: 'You get working software you can use, not a prototype and a slide deck.',
   },
 ]
 
@@ -32,32 +32,29 @@ export function About() {
     <Section id="about">
       <SectionHeading
         eyebrow="About"
-        title="I enjoy building systems that eliminate work no one should be doing."
+        title="I take the work no one should be doing off your team’s plate."
       />
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <Reveal className="space-y-5 text-pretty leading-relaxed text-muted-foreground">
           <p>
-            I&apos;m an early-career engineer, but I don&apos;t build like one.
-            I&apos;m less interested in collecting frameworks and more
-            interested in understanding how autonomous systems actually make
-            decisions — how an agent reasons, when it should call a tool, and
-            how to keep it reliable in the real world.
+            Every team has it: the inbox someone sorts each morning, the
+            research that eats an afternoon, the update that sits in one tool
+            until someone copies it into another. It&apos;s slow, it&apos;s easy
+            to get wrong, and you pay for it in salaried hours.
           </p>
           <p>
-            Most of my time goes into a simple question:{' '}
+            I find that work and build the system that does it end to end, with
+            nobody babysitting it.{' '}
             <span className="text-foreground">
-              what work here shouldn&apos;t be done by a human?
-            </span>{' '}
-            Then I connect the right models and APIs into a workflow that
-            handles it end to end — triaging inbox chaos, answering with voice,
-            routing decisions to the people who need them.
+              Hot leads get flagged before they go cold. Sources get found and
+              checked. The right person hears about it in seconds, not hours.
+            </span>
           </p>
           <p>
-            I care about outcomes. A project only matters if it saves someone
-            time, reduces a delay, or removes a decision that used to require
-            effort. That&apos;s the mindset I want to bring to a team building
-            production AI.
+            I judge every system by one question: what did it save you? Hours
+            back, faster replies, fewer things slipping through. If it
+            doesn&apos;t move one of those, it isn&apos;t finished.
           </p>
         </Reveal>
 

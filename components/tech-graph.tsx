@@ -21,35 +21,35 @@ const nodes = [
     title: 'Python',
     role: 'The foundation',
     detail:
-      'Where every system starts — the language I use to wire logic, models, and services together.',
+      'Holds everything together: the logic, the models, and the services they talk to.',
   },
   {
     icon: BrainCircuit,
     title: 'LLMs',
     role: 'The reasoning layer',
     detail:
-      'Models interpret messy, human input and make decisions that used to require manual judgement.',
+      'Reads messy human input like emails, questions, and documents, and makes the calls a person used to make.',
   },
   {
     icon: Network,
     title: 'API Orchestration',
     role: 'The connective tissue',
     detail:
-      'Gmail, Slack, and Gemini are chained into a single flow so data moves without a human in the loop.',
+      'Your existing tools, like email, Slack, and databases, connected so information moves without anyone copying it across.',
   },
   {
     icon: Workflow,
     title: 'Automation',
     role: 'The engine',
     detail:
-      'Triggers, classification, and routing run continuously — the system works while no one is watching.',
+      'Triggers, sorting, and routing run day and night, whether anyone is watching or not.',
   },
   {
     icon: TrendingUp,
-    title: 'Business Value',
+    title: 'Results',
     role: 'The outcome',
     detail:
-      'Faster responses, less manual effort, and teams focused on work that actually matters.',
+      'Faster replies, fewer missed opportunities, and hours back every week.',
   },
 ]
 
@@ -61,7 +61,7 @@ export function TechGraph() {
       <SectionHeading
         eyebrow="How it connects"
         title="Every technology has a job in the chain."
-        description="I don't collect tools — I connect them. Hover or tap each layer to see how raw code becomes real business value."
+        description="Each piece earns its place by moving the work forward. Hover or tap a layer to follow the path from code to results."
       />
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">

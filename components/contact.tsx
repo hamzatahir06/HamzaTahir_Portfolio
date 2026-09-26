@@ -46,15 +46,15 @@ export function Contact() {
           <div className="relative">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-xs text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-primary" />
-              Open to opportunities
+              Available for new work
             </span>
             <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-              Let&apos;s build AI that solves real problems.
+              Tell me what&apos;s eating your team&apos;s time.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-              I&apos;m looking to contribute to ambitious AI teams building
-              products that create real-world value. If that&apos;s what
-              you&apos;re building, I&apos;d love to talk.
+              Send me the task nobody wants to do. I&apos;ll tell you straight
+              whether it can be automated and what it would save you. Hiring for
+              an AI team? Let&apos;s talk too.
             </p>
 
             <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
