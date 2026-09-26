@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Hamza Tahir — Agentic AI Engineer',
   description:
-    'I build AI systems that take repetitive work off your team, like sorting email, researching, and routing updates, so your people get their hours back.',
+    'I build AI systems that take repetitive work off your team, like research, reporting, and routing updates, so your people get their hours back.',
   keywords: [
     'AI Engineer',
     'Agentic AI',

@@ -48,9 +48,9 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
           className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          Sorting email, digging up information, passing updates between tools:
-          hand it to a system that does it every time, without being asked. Your
-          team gets those hours back.
+          I design autonomous, agentic workflows that turn LLMs and APIs into
+          software that solves real business problems — built with Python,
+          reasoning models, and a product engineer&apos;s mindset.
         </motion.p>
 
         <motion.div

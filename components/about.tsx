@@ -32,13 +32,13 @@ export function About() {
     <Section id="about">
       <SectionHeading
         eyebrow="About"
-        title="I take the work no one should be doing off your team’s plate."
+        title="I build AI agents that handle your team’s repetitive work, so your people can focus on what needs them."
       />
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <Reveal className="space-y-5 text-pretty leading-relaxed text-muted-foreground">
           <p>
-            Every team has it: the inbox someone sorts each morning, the
+            Every team has it: the report someone rebuilds every week, the
             research that eats an afternoon, the update that sits in one tool
             until someone copies it into another. It&apos;s slow, it&apos;s easy
             to get wrong, and you pay for it in salaried hours.
